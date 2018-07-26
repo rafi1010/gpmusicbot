@@ -37,7 +37,7 @@ exports.run = (client, message, args, ops) => {
         collector.once('collect', function(m){
 
           // Run `play` command, passing in the url as agrs[0]
-          let commandFile = require(`./play.js`); //we aren't specifying the /commands folder since we are already there with search.js
+          let commandFile = require(`./oynat.js`); //we aren't specifying the /commands folder since we are already there with search.js
           commandFile.run(client, message, [this.videos[parseInt(m.content)-1].url], ops);
         });
     });
