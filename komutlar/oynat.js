@@ -6,11 +6,11 @@ const ytdl = require('ytdl-core');
 exports.run = async (client, message, args, ops) => {
 
     // First, we need to check if the author is connected to a voice channel
-    if (!message.member.voiceChannel) return message.channel.send('Please connect to a voice channel');
+    if (!message.member.voiceChannel) return message.channel.send('Lütfen Herhangi Bir Ses Kanalına giriş Yap!');
     // If not, return & send message to chat
 
     // Check if author input a url
-    if (!args[0]) return message.channel.send('Sorry, please input a url following the command');
+    if (!args[0]) return message.channel.send('Pardon, Komuttan Sonra Lütfen Geçerli Bir Url Gir!');
 
     // Validate Info
     let validate = await ytdl.validateURL(args[0]);
@@ -46,7 +46,7 @@ exports.run = async (client, message, args, ops) => {
     else {// Although, if there is already a dispatcher, run this
 
         // Send added to queue message
-        message.channel.send(`Added to queue:${info.title} | Requested By: ${message.author.id}`);
+        message.channel.send(`Sıraya Eklenen:${info.title} | ${message.author.id} Tarafından `);
 
     }
 
@@ -58,7 +58,7 @@ exports.run = async (client, message, args, ops) => {
 async function playStream(client, ops, data) {
 
     // First, we can send the now playing message
-    client.channels.get(data.queue[0].announceChannel).send(`Now Playing: ${data.queue[0].songTitle} | Requested By: ${data.queue[0].requester}`);
+    client.channels.get(data.queue[0].announceChannel).send(`Oynatılan: ${data.queue[0].songTitle} | ${data.queue[0].requester} Tarafından`);
 
     data.dispatcher = await data.connection.playStream(ytdl(data.queue[0].url,{ filter: 'audioonly'}));
     data.dispatcher.guildID = data.guildID;
