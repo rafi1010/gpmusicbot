@@ -65,4 +65,4 @@ client.on('guildMemberRemove', member =>{
 
 });
 
-client.login("NDcxODA1NDgxNDQzMjYyNDg0.DjqK5g.WHG5v_BWc_LmLiDX42u6EVBbmfs");
+client.login("process.env.BOT_TOKEN");
