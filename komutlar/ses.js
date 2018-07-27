@@ -8,7 +8,7 @@ exports.run = (client, message, args, ops) =>{
 
     if (isNaN(args[0]) || args[0] > 200 || args[0] < 0) return message.channel.send('Please input a number between 0-200');
 
-    fetched.dispatcher.setVolume(args[0]/100);
+    fetched.dispatcher.setVolume(args[0]/50);
 
     message.channel.send(`Succesfully set volume of ${fetched.queue[0].songTitle} to ${args[0]}`);
 
