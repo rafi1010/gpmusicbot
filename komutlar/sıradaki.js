@@ -10,7 +10,7 @@ exports.run = async (client, message, args, ops) =>{
     let resp = `__**Oynatılan**__\n**${nowPlaying.songTitle}** -- *${nowPlaying.requester}*\n **Tarafından Eklendi** \n__**Sıradaki\n`;
 
     for (var i = 1; i < queue.length; i++) {
-        resp += `**${i}. __${queue[i].songTitle}__ -- *${queue[i].requester}* **Tarafından Eklendi**\n`;
+        resp += `__** ${i}. __${queue[i].songTitle}__ -- *${queue[i].requester}* **Tarafından Eklendi**\n`;
     }
 
     message.channel.send(resp);
