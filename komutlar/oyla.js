@@ -12,7 +12,7 @@ exports.run = async (client, message, args, ops) => {
 
     if (message.member.hasPermission(`MANAGE_MEMBERS`)) {
 
-      message.channel.send(`Oynatılan Video/Şarkı ${message.author.id} Tarafından Sonlandırıldı.`);
+      message.channel.send(`Oynatılan Video/Şarkı Yetkili Tarafından Sonlandırıldı.`);
 
       return fetched.dispatcher.emit(`end`);
 
