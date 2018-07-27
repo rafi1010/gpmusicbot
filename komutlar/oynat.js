@@ -46,7 +46,7 @@ exports.run = async (client, message, args, ops) => {
     else {// Although, if there is already a dispatcher, run this
 
         // Send added to queue message
-        message.channel.send(`Sıraya Eklenen:${info.title} | ${message.author.id} Tarafından `);
+        message.channel.send(`Sıraya Eklenen: ${info.title} | ${message.author.id} Tarafından `);
 
     }
 

@@ -2,14 +2,14 @@ exports.run = (client, message, args, ops) =>{
 
     let fetched = ops.active.get(message.guild.id);
 
-    if (!fetched) return message.channel.send('There currently isn\'t any music playing in this guild!');
+    if (!fetched) return message.channel.send('Bu Ses Kanalında Herhangi Bir Video Oynatılmıyor!');
 
-    if (message.member.voiceChannel !== message.guild.me.voiceChannel) return message.channel.send('Sorry, you aren\'t in the same channel as the bot!');
+    if (message.member.voiceChannel !== message.guild.me.voiceChannel) return message.channel.send('Afedersin, Botla Aynı Kanalda Değilsin.');
 
-    if (!fetched.dispatcher.resume) return message.channel.send('This music isn\'t paused.');
+    if (!fetched.dispatcher.resume) return message.channel.send('Müzik Zaten Çalıyor.');
 
     fetched.dispatcher.resume();
 
-    message.channel.send(`Succesfully resumed ${fetched.queue[0].songTitle}`);
+    message.channel.send(`${fetched.queue[0].songTitle} İsimli Müzik ${message.author.id} Tarafından Tekrar Başlatıldı.`);
 
 }

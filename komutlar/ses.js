@@ -1,15 +1,17 @@
 exports.run = (client, message, args, ops) =>{
 
+    if (message.author.id !== ops.ownerID) return message.channel.send('Üzgünüm.Sadece Yapımcım Bu Komutu Kullanabilir');
+
     let fetched = ops.active.get(message.guild.id);
 
-    if (!fetched) return message.channel.send('There currently isn\'t any music playing in this guild!');
+    if (!fetched) return message.channel.send('Bu Ses Kanalında Herhangi Bir Video Oynatılmıyor!');
 
-    if (message.member.voiceChannel !== message.guild.me.voiceChannel) return message.channel.send('Sorry, you aren\'t in the same channel as the bot!');
+    if (message.member.voiceChannel !== message.guild.me.voiceChannel) return message.channel.send('Afedersin, Botla Aynı Kanalda Değilsin.');
 
-    if (isNaN(args[0]) || args[0] > 200 || args[0] < 0) return message.channel.send('Please input a number between 0-200');
+    if (isNaN(args[0]) || args[0] > 200 || args[0] < 0) return message.channel.send('Lütfen, 0 İle 200 Arasında Bir Sayı Gir!');
 
-    fetched.dispatcher.setVolume(args[0]/50);
+    fetched.dispatcher.setVolume(args[0]/40);
 
-    message.channel.send(`Succesfully set volume of ${fetched.queue[0].songTitle} to ${args[0]}`);
+    message.channel.send(`${fetched.queue[0].songTitle} İsimli Müziğin Sesi Başarıyla ${args[0]} Yapıldı.`);
 
 }
