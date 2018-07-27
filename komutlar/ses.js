@@ -10,7 +10,7 @@ exports.run = (client, message, args, ops) =>{
 
     if (isNaN(args[0]) || args[0] > 200 || args[0] < 0) return message.channel.send('Lütfen, 0 İle 200 Arasında Bir Sayı Gir!');
 
-    fetched.dispatcher.setVolume(args[0]/40);
+    fetched.dispatcher.setVolume(args[0]/20);
 
     message.channel.send(`${fetched.queue[0].songTitle} İsimli Müziğin Sesi Başarıyla ${args[0]} Yapıldı.`);
 
