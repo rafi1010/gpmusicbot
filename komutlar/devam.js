@@ -6,7 +6,7 @@ exports.run = (client, message, args, ops) =>{
 
     if (message.member.voiceChannel !== message.guild.me.voiceChannel) return message.channel.send('Sorry, you aren\'t in the same channel as the bot!');
 
-    if (fetched.dispatcher.resume) return message.channel.send('This music isn\'t paused.');
+    if (!fetched.dispatcher.resume) return message.channel.send('This music isn\'t paused.');
 
     fetched.dispatcher.resume();
 
