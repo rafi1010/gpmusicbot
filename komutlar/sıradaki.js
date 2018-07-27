@@ -2,15 +2,15 @@ exports.run = async (client, message, args, ops) =>{
 
     let fetched = ops.active.get(message.guild.id);
 
-    if (!fetched) return message.channel.send('There currently isn\'t any music playing in this guild.');
+    if (!fetched) return message.channel.send('Şu Anda Bulunduğum Kanalda Herhangi Bir Müzik Çalmıyor.');
 
     let queue = fetched.queue;
     let nowPlaying = queue[0];
 
-    let resp = `__**Now Playing**__\n**${nowPlaying.songTitle}** -- **Requested By:** *${nowPlaying.requester}*\n\n__**Queue\n`;
+    let resp = `__**Oynatılan**__\n**${nowPlaying.songTitle}** -- *${nowPlaying.requester}*\n **Tarafından Eklendi** \n__**queue\n`;
 
     for (var i = 1; i < queue.length; i++) {
-        resp += `${i}. **${queue[i].songTitle}__ -- **Requested By:** *${queue[i].requester}*\n`;
+        resp += `**${i}. __${queue[i].songTitle}__ -- *${queue[i].requester}* **Tarafından Eklendi**\n`;
     }
 
     message.channel.send(resp);
