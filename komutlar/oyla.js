@@ -10,7 +10,7 @@ exports.run = async (client, message, args, ops) => {
 
     let required = Math.ceil(userCount/2);
 
-    if (message.member.hasPermission(`ADMINISTRATOR`)) {
+    if (message.member.hasPermission(`MUTE_MEMBERS`)) {
 
       message.channel.send(`Oynatılan Video/Şarkı Yetkili Tarafından Sonlandırıldı.`);
 
