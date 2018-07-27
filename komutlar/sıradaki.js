@@ -7,7 +7,7 @@ exports.run = async (client, message, args, ops) =>{
     let queue = fetched.queue;
     let nowPlaying = queue[0];
 
-    let resp = `__**Oynatılan**__\n**${nowPlaying.songTitle}** -- *${nowPlaying.requester}*\n **Tarafından Eklendi** \n__**queue\n`;
+    let resp = `__**Oynatılan**__\n**${nowPlaying.songTitle}** -- *${nowPlaying.requester}*\n **Tarafından Eklendi** \n__**Sıradaki\n`;
 
     for (var i = 1; i < queue.length; i++) {
         resp += `**${i}. __${queue[i].songTitle}__ -- *${queue[i].requester}* **Tarafından Eklendi**\n`;
