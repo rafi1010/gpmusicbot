@@ -52,7 +52,7 @@ client.on('guildMemberAdd', member =>{
     if (member.guild.id !== serverStats.guildID) return;
 
     client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı : ${member.guild.memberCount}`);
-    client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.members.filter(m => !m.bot).size}`);
+    client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.memberCount}`);
 
 });
 
