@@ -16,6 +16,7 @@ const serverStats = {
 // Listener Events
 client.on('message', message => {
 
+    let cmds = messageArray[0];
     let args = message.content.slice(prefix.length).trim().split(' ');
     let cmd = args.shift().toLowerCase();
 
@@ -47,9 +48,9 @@ client.on('message', message => {
 
 client.on('ready', () => console.log('Başlatıldı.'));
 
-if(cmd === `${prefix}statsrefresh`){
-        client.channels.get("478297357046382592").setName(`✸ Toplam Kullanıcı : ${member.guild.memberCount}`);
-        client.channels.get("478297464810635279").setName(`✸ Üyeler :  ${member.guild.members.filter(m => m.user.client).size}`);
+if(cmds === `${prefix}statsrefresh`){
+        client.channels.get(serverStats.totalUsersID).setName(`✸ Toplam Kullanıcı : ${member.guild.memberCount}`);
+        client.channels.get(serverStats.memberCountID).setName(`✸ Üyeler :  ${member.guild.members.filter(m => m.user.client).size}`);
     }
 
 client.on('guildMemberAdd', member =>{
