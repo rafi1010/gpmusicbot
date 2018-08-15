@@ -47,12 +47,17 @@ client.on('message', message => {
 
 client.on('ready', () => console.log('Başlatıldı.'));
 
+if(cmd === `${prefix}statsrefresh`){
+        client.channels.get("478297357046382592").setName(`✸ Toplam Kullanıcı : ${member.guild.memberCount}`);
+        client.channels.get("478297464810635279").setName(`✸ Üyeler :  ${member.guild.members.filter(m => m.user.client).size}`);
+    }
+
 client.on('guildMemberAdd', member =>{
 
     if (member.guild.id !== serverStats.guildID) return;
 
-    client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı : ${member.guild.memberCount}`);
-    client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.memberCount}`);
+    client.channels.get(serverStats.totalUsersID).setName(`✸ Toplam Kullanıcı : ${member.guild.memberCount}`);
+    client.channels.get(serverStats.memberCountID).setName(`✸ Üyeler :  ${member.guild.members.filter(m => m.user.client).size}`);
 
 });
 
@@ -60,8 +65,8 @@ client.on('guildMemberRemove', member =>{
 
       if (member.guild.id !== serverStats.guildID) return;
 
-      client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı : ${member.guild.memberCount}`);
-      client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.memberCount}`);
+      client.channels.get(serverStats.totalUsersID).setName(`✸ Toplam Kullanıcı : ${member.guild.memberCount}`);
+      client.channels.get(serverStats.memberCountID).setName(`✸ Üyeler :  ${member.guild.members.filter(m => m.user.client).size}`);
 
 });
 
