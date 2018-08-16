@@ -52,7 +52,7 @@ client.on('guildMemberAdd', member =>{
     if (member.guild.id !== serverStats.guildID) return;
 
     client.channels.get(serverStats.totalUsersID).setName(`✸ Toplam Kullanıcı : ${member.guild.memberCount}`);
-    client.channels.get(serverStats.memberCountID).setName(`✸ Üyeler :  ${member.guild.members.filter(m => m.user.client).size}`);
+    client.channels.get(serverStats.memberCountID).setName(`✸ Üyeler :  ${member.guild.memberCount}`);
 
 });
 
@@ -61,7 +61,7 @@ client.on('guildMemberRemove', member =>{
       if (member.guild.id !== serverStats.guildID) return;
 
       client.channels.get(serverStats.totalUsersID).setName(`✸ Toplam Kullanıcı : ${member.guild.memberCount}`);
-      client.channels.get(serverStats.memberCountID).setName(`✸ Üyeler :  ${member.guild.members.filter(m => m.user.client).size}`);
+      client.channels.get(serverStats.memberCountID).setName(`✸ Üyeler :  ${member.guild.memberCount}`);
 
 });
 
